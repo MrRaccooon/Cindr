@@ -13,7 +13,7 @@ _Last updated: May 2026_
 - Display name (optional).
 - Date of birth (to determine age-appropriate content).
 - Liked, favourited, and watched movie lists.
-- Taste fingerprint — an aggregate of your genre/mood/era preferences derived from swipes. This is stored server-side to personalise your feed across devices.
+- Taste fingerprint: an aggregate of your genre/mood/era preferences derived from swipes. This is stored server-side to personalise your feed across devices.
 
 ## What Cindr does not collect
 
@@ -24,11 +24,11 @@ _Last updated: May 2026_
 ## Third-party services
 
 Cindr uses:
-- **TMDB** — for movie metadata and images. See [TMDB Privacy Policy](https://www.themoviedb.org/privacy-policy).
-- **YouTube** — for trailer playback. See [Google Privacy Policy](https://policies.google.com/privacy).
-- **Supabase** — for database and authentication. See [Supabase Privacy Policy](https://supabase.com/privacy).
-- **Cloudinary** — for avatar image storage. See [Cloudinary Privacy Policy](https://cloudinary.com/privacy).
-- **Vercel** — for hosting and analytics. See [Vercel Privacy Policy](https://vercel.com/legal/privacy-policy).
+- **TMDB** - for movie metadata and images. See [TMDB Privacy Policy](https://www.themoviedb.org/privacy-policy).
+- **YouTube** - for trailer playback. See [Google Privacy Policy](https://policies.google.com/privacy).
+- **Supabase** - for database and authentication. See [Supabase Privacy Policy](https://supabase.com/privacy).
+- **Cloudinary** - for avatar image storage. See [Cloudinary Privacy Policy](https://cloudinary.com/privacy).
+- **Vercel** - for hosting and analytics. See [Vercel Privacy Policy](https://vercel.com/legal/privacy-policy).
 
 ## Data deletion
 

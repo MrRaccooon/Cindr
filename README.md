@@ -11,6 +11,8 @@
 
 <br/>
 
+[![Landing Page](https://img.shields.io/badge/Showcase-%E2%86%92-D85A30?style=for-the-badge&labelColor=111111)](https://mrraccooon.github.io/Cindr)
+&nbsp;&nbsp;
 [![Live App](https://img.shields.io/badge/Open%20Cindr-%E2%86%92-D85A30?style=for-the-badge&labelColor=111111)](https://cindr-red.vercel.app)
 &nbsp;&nbsp;
 [![Status](https://img.shields.io/badge/status-live-22c55e?style=for-the-badge&labelColor=111111)](https://cindr-red.vercel.app)
@@ -25,52 +27,56 @@
 
 ## What is Cindr?
 
-Cindr is a taste-led movie discovery app. Instead of scrolling through endless lists, you swipe — left to skip, right to like, up to watch the trailer. The more you swipe, the smarter it gets.
+Cindr is a movie discovery app built around one idea: stop browsing, start deciding. No carousels. No categories. No "because you watched X." Just a card, a swipe, and your gut. Left is dead. Right is yours. Up fires the trailer so you can decide in 60 seconds.
 
-No account needed to start. Just open it and swipe.
+The more you swipe, the sharper it gets. Walk in without an account. Create one when you're ready to keep your history.
 
 <div align="center">
 <br/>
 
-| | |
-|:---:|:---:|
-| <img src="assets/screenshots/home.png" width="260" alt="Cindr landing page"/> | <img src="assets/screenshots/discover.png" width="260" alt="Cindr discover page"/> |
-| **Home** | **Discover** |
+| | | | |
+|:---:|:---:|:---:|:---:|
+| <img src="assets/screenshots/landing.png" width="180" alt="Cindr landing page"/> | <img src="assets/screenshots/discover-taste.png" width="180" alt="Cindr discover - Taste mode"/> | <img src="assets/screenshots/discover-random.png" width="180" alt="Cindr discover - Random mode"/> | <img src="assets/screenshots/watchlist.png" width="180" alt="Cindr watchlist"/> |
+| **Home** | **Taste mode** | **Random mode** | **Watchlist** |
 
 <br/>
 </div>
 
 ---
 
-## How it works
+## The controls
 
 ```
-← Swipe left   →  Skip a movie
-→ Swipe right  →  Like it
-↑ Swipe up     →  Watch the trailer
+← Swipe left   →  Dead to you. Gone.
+→ Swipe right  →  Yours. Saved.
+↑ Swipe up     →  Trailer fires. Decide in 60 seconds.
 ```
 
-After a few likes, Cindr's **CindrSense** algorithm learns your taste — genres, vibes, era, language — and starts weighting your feed toward what you'll actually enjoy. Every swipe teaches it something. Recent taste always wins so it never goes stale.
+After a few likes, **CindrSense** takes over. It reads genre, mood, era, language - weights them with exponential decay so your recent taste always beats your old taste. It never settles. Never asks for feedback. Just gets better and shuts up about it.
+
+Flip to **Random** any time to break the pattern entirely.
 
 ---
 
-## Features
+## What's in it
 
-- **Swipe-based discovery** — no lists, no filters, just cards
-- **Inline trailers** — swipe up or tap the trailer button to preview
-- **CindrSense recommendations** — learns from every swipe in real time
-- **Taste mode / Random mode** — toggle between personalised and serendipitous
-- **Watchlist** — liked, favourited, and watched lists sync to your account
-- **Guest-friendly** — full discovery without signing in; account syncs your history when you do
-- **Works on any screen** — designed mobile-first, works on desktop too
+- **Cards, not lists** - one film at a time, full poster, full focus
+- **Trailers on demand** - swipe up or tap. No leaving the app.
+- **CindrSense** - learns from every swipe. Gets personal fast.
+- **Taste / Random** - your feed or pure chaos. You pick.
+- **Liked, Favourited, Watched** - three lists, synced to your account
+- **No account required** - full discovery without signing in; create one to keep your history
+- **Mobile-first** - built for phones, works everywhere
 
 ---
 
 ## Try it
 
-**[https://cindr-red.vercel.app](https://cindr-red.vercel.app)**
+Showcase: **[mrraccooon.github.io/Cindr](https://mrraccooon.github.io/Cindr)**
 
-No install. No account required. Works on any modern browser.
+App: **[cindr-red.vercel.app](https://cindr-red.vercel.app)**
+
+No install. No app store. Works on any modern browser. Just open it.
 
 ---
 
@@ -82,7 +88,7 @@ Built with Next.js, Supabase, Framer Motion, TMDB, and Cloudinary. Source is pri
 
 ## Privacy
 
-Cindr does not sell or share your data. Swipe history stays on your device until you create an account. See [docs/privacy.md](docs/privacy.md) for the full policy.
+Cindr doesn't sell your data. It doesn't share it. Swipe history stays on your device until you create an account and choose to sync. See [docs/privacy.md](docs/privacy.md).
 
 ---
 
@@ -90,7 +96,13 @@ Cindr does not sell or share your data. Swipe history stays on your device until
 
 <br/>
 
-Made with taste &nbsp;·&nbsp; [cindr-red.vercel.app](https://cindr-red.vercel.app)
+> *"Most people don't have bad taste. They just never had a reason to find out what their taste actually is."*
+>
+> - Cindr
+
+<br/>
+
+Built with taste &nbsp;·&nbsp; [cindr-red.vercel.app](https://cindr-red.vercel.app)
 
 <br/>
 

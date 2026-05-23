@@ -3,13 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cindr — Swipe for movies, not dates</title>
-  <meta name="description" content="Instead of swiping for dates, you swipe for movies. Cindr is a taste-led movie discovery app." />
-  <meta property="og:title" content="Cindr" />
-  <meta property="og:description" content="Instead of swiping for dates, you swipe for movies." />
+  <title>Cindr</title>
+  <meta name="description" content="You already know what you like. Cindr just stops making you scroll for it." />
+  <meta property="og:title" content="Cindr - Taste-led movie discovery" />
+  <meta property="og:description" content="No lists. No filters. One card at a time. Swipe left, right, or up. Your taste does the rest." />
   <meta property="og:url" content="https://mrraccooon.github.io/Cindr" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://mrraccooon.github.io/Cindr/assets/screenshots/discover-taste.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cindr - Taste-led movie discovery" />
+  <meta name="twitter:description" content="No lists. No filters. One card at a time. Swipe left, right, or up. Your taste does the rest." />
+  <meta name="twitter:image" content="https://mrraccooon.github.io/Cindr/assets/screenshots/discover-taste.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cindr",
+    "url": "https://cindr-red.vercel.app",
+    "description": "Taste-led movie discovery. Swipe to skip, like, or watch the trailer. The more you swipe, the sharper it gets.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0" }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -17,129 +33,201 @@
 </head>
 <body>
 
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
   <!-- Nav -->
   <nav class="nav" id="nav">
     <span class="nav-logo">Cindr</span>
-    <a href="https://cindr-red.vercel.app" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Open App</a>
+    <a href="https://cindr-red.vercel.app" class="btn-open" target="_blank" rel="noopener">Open App &rarr;</a>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-bg">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-    </div>
 
-    <div class="hero-content">
-      <div class="hero-badge" id="badge">
-        <span class="badge-dot"></span>
-        Live now — no sign-up required
+    <div class="hero-inner">
+
+      <div class="hero-left">
+        <div class="eyebrow" id="eyebrow">TASTE-LED MOVIE DISCOVERY</div>
+
+        <h1 class="hero-title" id="hero-title">
+          <span class="ht-line" id="ht1">Instead of</span>
+          <span class="ht-line" id="ht2">swiping for</span>
+          <span class="ht-line ht-accent" id="ht3">dates,</span>
+          <span class="ht-line" id="ht4">you swipe for</span>
+          <span class="ht-line ht-accent" id="ht5">movies.</span>
+        </h1>
+
+        <p class="hero-body" id="hero-body">
+          No lists. No filters. No algorithm pretending it knows you.
+          One card at a time. Left, right, or up. Your taste does the rest.
+        </p>
+
+        <div class="hero-cta" id="hero-cta">
+          <a href="https://cindr-red.vercel.app" class="cta-primary" target="_blank" rel="noopener">
+            Start swiping &rarr;
+          </a>
+          <span class="cta-note">Walk in. No ID check.</span>
+        </div>
       </div>
 
-      <h1 class="hero-title" id="hero-title">
-        <span class="line" id="line1">Instead of swiping</span>
-        <span class="line line-accent" id="line2">for dates,</span>
-        <span class="line" id="line3">you swipe for movies.</span>
-      </h1>
-
-      <p class="hero-sub" id="hero-sub">
-        Taste-led movie discovery. Swipe left to skip, right to like, up to watch the trailer.
-        The more you swipe, the smarter it gets.
-      </p>
-
-      <div class="hero-actions" id="hero-actions">
-        <a href="https://cindr-red.vercel.app" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-          Open Cindr &rarr;
-        </a>
-        <a href="#how-it-works" class="btn btn-ghost btn-lg">How it works</a>
-      </div>
-    </div>
-
-    <!-- Swipe demo card -->
-    <div class="card-demo" id="card-demo">
-      <div class="demo-card" id="demo-card">
-        <div class="demo-card-inner">
-          <div class="demo-card-gradient"></div>
-          <div class="demo-card-info">
-            <div class="demo-card-genre">Action · Thriller</div>
-            <div class="demo-card-title">Your next favourite film</div>
-            <div class="demo-card-meta">2024 &nbsp;·&nbsp; 2h 14m &nbsp;·&nbsp; ★ 8.1</div>
+      <div class="hero-right" id="hero-right">
+        <!-- Stacked card demo -->
+        <div class="phone-stack">
+          <div class="phone phone-back">
+            <img src="assets/screenshots/watchlist.png" alt="Cindr watchlist" />
+          </div>
+          <div class="phone phone-mid">
+            <img src="assets/screenshots/discover-random.png" alt="Cindr random mode" />
+          </div>
+          <div class="phone phone-front" id="demo-card">
+            <img src="assets/screenshots/discover-taste.png" alt="Cindr taste mode" />
+            <div class="stamp stamp-like" id="stamp-like">LIKE</div>
+            <div class="stamp stamp-skip" id="stamp-skip">SKIP</div>
+            <div class="stamp stamp-trailer" id="stamp-trailer">TRAILER</div>
           </div>
         </div>
-        <div class="demo-like-stamp" id="stamp-like">LIKE</div>
-        <div class="demo-skip-stamp" id="stamp-skip">SKIP</div>
-        <div class="demo-trailer-stamp" id="stamp-trailer">TRAILER ↑</div>
       </div>
-      <div class="demo-actions">
-        <div class="demo-btn demo-btn-skip" id="btn-skip">&#x2715;</div>
-        <div class="demo-btn demo-btn-trailer" id="btn-trailer">&#9654; Trailer</div>
-        <div class="demo-btn demo-btn-like" id="btn-like">&#x2665;</div>
+
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" id="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- Gestures section -->
+  <section class="section-gestures">
+    <div class="wrapper">
+      <div class="gestures-header">
+        <div class="section-tag">THE CONTROLS</div>
+        <h2 class="section-heading">Three moves.<br/>That's all it takes.</h2>
+      </div>
+      <div class="gestures-grid">
+        <div class="gesture-item" data-reveal>
+          <div class="gesture-arrow arrow-left">&larr;</div>
+          <div class="gesture-text">
+            <strong>Swipe left</strong>
+            <span>Dead to you. It's gone.</span>
+          </div>
+        </div>
+        <div class="gesture-divider"></div>
+        <div class="gesture-item" data-reveal>
+          <div class="gesture-arrow arrow-right">&rarr;</div>
+          <div class="gesture-text">
+            <strong>Swipe right</strong>
+            <span>Yours. Cindr remembers.</span>
+          </div>
+        </div>
+        <div class="gesture-divider"></div>
+        <div class="gesture-item" data-reveal>
+          <div class="gesture-arrow arrow-up">&uarr;</div>
+          <div class="gesture-text">
+            <strong>Swipe up</strong>
+            <span>Trailer fires. Decide in 60 seconds.</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="section" id="how-it-works">
-    <div class="container">
-      <div class="section-label">How it works</div>
-      <h2 class="section-title">Three gestures. Infinite movies.</h2>
-      <div class="steps">
-        <div class="step" data-animate>
-          <div class="step-icon step-icon-skip">&#8592;</div>
-          <h3>Swipe left</h3>
-          <p>Skip a movie. Never see it again in this session.</p>
-        </div>
-        <div class="step" data-animate>
-          <div class="step-icon step-icon-like">&#8594;</div>
-          <h3>Swipe right</h3>
-          <p>Like it. Saved to your list and teaches CindrSense your taste.</p>
-        </div>
-        <div class="step" data-animate>
-          <div class="step-icon step-icon-trailer">&#8593;</div>
-          <h3>Swipe up</h3>
-          <p>Watch the trailer inline — without leaving your discovery feed.</p>
+  <!-- CindrSense section -->
+  <section class="section-sense">
+    <div class="wrapper sense-wrapper">
+      <div class="sense-left" data-reveal>
+        <div class="section-tag">CINDRSENSE</div>
+        <h2 class="section-heading">It studies you.<br/>You don't notice.</h2>
+        <p class="sense-body">
+          Every swipe is a data point. Genre, mood, era, language -
+          weighted and decayed so what you liked last week matters more than what you liked last year.
+          It never asks. It never explains. It just gets better.
+          Flip to Random when you want it to surprise you instead.
+        </p>
+      </div>
+      <div class="sense-right" data-reveal>
+        <div class="sense-feed">
+          <div class="feed-row">
+            <div class="feed-tag active">Crime</div>
+            <div class="feed-tag active">Thriller</div>
+            <div class="feed-tag fading">Romance</div>
+            <div class="feed-tag active">Sci-Fi</div>
+          </div>
+          <div class="feed-row">
+            <div class="feed-tag fading">Horror</div>
+            <div class="feed-tag active">Drama</div>
+            <div class="feed-tag fading">Comedy</div>
+            <div class="feed-tag active">Action</div>
+          </div>
+          <div class="feed-pill">
+            <span class="pill-dot"></span>
+            Recommended for you
+          </div>
+          <div class="feed-modes">
+            <div class="mode-btn mode-active">Taste</div>
+            <div class="mode-btn">Random</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CindrSense -->
-  <section class="section section-dark" id="sense">
-    <div class="container">
-      <div class="section-label">CindrSense</div>
-      <h2 class="section-title">Gets smarter with every swipe.</h2>
-      <p class="section-body">
-        CindrSense tracks your taste across genres, mood, era, language, and even keywords from films you like.
-        It applies exponential decay so recent swipes always matter more — your feed never goes stale.
-        Toggle to <strong>Random</strong> any time to escape the algorithm entirely.
-      </p>
-      <div class="sense-tags" data-animate>
-        <span class="tag">Action</span>
-        <span class="tag">Thriller</span>
-        <span class="tag tag-fading">Romance</span>
-        <span class="tag">Sci-Fi</span>
-        <span class="tag tag-fading">Horror</span>
-        <span class="tag">Crime</span>
-        <span class="tag tag-glow">Recommended for you</span>
+  <!-- Screenshots section -->
+  <section class="section-screens">
+    <div class="wrapper">
+      <div class="screens-header" data-reveal>
+        <div class="section-tag">THE APP</div>
+        <h2 class="section-heading">No tour needed.<br/>You'll figure it out.</h2>
+      </div>
+      <div class="screens-grid">
+        <div class="screen-item" data-reveal>
+          <img src="assets/screenshots/landing.png" alt="Cindr home screen" loading="lazy" />
+          <span>Home</span>
+        </div>
+        <div class="screen-item" data-reveal>
+          <img src="assets/screenshots/discover-taste.png" alt="Taste mode" loading="lazy" />
+          <span>Taste mode</span>
+        </div>
+        <div class="screen-item" data-reveal>
+          <img src="assets/screenshots/discover-random.png" alt="Random mode" loading="lazy" />
+          <span>Random mode</span>
+        </div>
+        <div class="screen-item" data-reveal>
+          <img src="assets/screenshots/watchlist.png" alt="Watchlist" loading="lazy" />
+          <span>Watchlist</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section cta-section">
-    <div class="container cta-container">
-      <h2 class="cta-title">Ready to find your next film?</h2>
-      <p class="cta-sub">No account. No app store. Just open it and swipe.</p>
-      <a href="https://cindr-red.vercel.app" class="btn btn-primary btn-xl" target="_blank" rel="noopener">
+  <!-- Final CTA -->
+  <section class="section-cta">
+    <div class="wrapper cta-wrapper">
+      <h2 class="cta-heading" data-reveal>You know what<br/>you want to watch.</h2>
+      <p class="cta-sub" data-reveal>You just haven't found it yet. Open Cindr. Swipe until you do.</p>
+      <a href="https://cindr-red.vercel.app" class="cta-primary cta-xl" target="_blank" rel="noopener" data-reveal>
         Open Cindr &rarr;
       </a>
     </div>
   </section>
 
+  <!-- Quote -->
+  <section class="section-quote">
+    <div class="wrapper">
+      <blockquote class="hard-quote" data-reveal>
+        <span class="quote-mark">&ldquo;</span>
+        Most people don't have bad taste.<br/>They just never had a reason to find out what their taste actually is.
+        <span class="quote-mark">&rdquo;</span>
+        <cite>- Cindr</cite>
+      </blockquote>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
+    <div class="wrapper footer-inner">
       <span class="footer-logo">Cindr</span>
       <div class="footer-links">
         <a href="docs/privacy.html">Privacy</a>

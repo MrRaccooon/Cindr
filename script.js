@@ -1,107 +1,80 @@
-// ── Scroll-reveal ────────────────────────────────────────────────────────────
+// ── Scroll reveal ────────────────────────────────────────────────────────────
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.classList.add("visible");
     });
   },
   { threshold: 0.15 }
 );
 
-document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
+document.querySelectorAll("[data-reveal]").forEach((el) => revealObserver.observe(el));
 
-// ── Demo card swipe animation ─────────────────────────────────────────────────
+// ── Demo card swipe loop ──────────────────────────────────────────────────────
 
-const card = document.getElementById("demo-card");
-const stampLike = document.getElementById("stamp-like");
-const stampSkip = document.getElementById("stamp-skip");
+const card         = document.getElementById("demo-card");
+const stampLike    = document.getElementById("stamp-like");
+const stampSkip    = document.getElementById("stamp-skip");
 const stampTrailer = document.getElementById("stamp-trailer");
-const btnLike = document.getElementById("btn-like");
-const btnSkip = document.getElementById("btn-skip");
-const btnTrailer = document.getElementById("btn-trailer");
 
 if (card) {
   const phases = [
-    { label: "like", dx: 120, dy: 0, rotation: 15 },
-    { label: "skip", dx: -120, dy: 0, rotation: -15 },
-    { label: "trailer", dx: 0, dy: -100, rotation: 0 },
+    { type: "like",    dx: 130,  dy: 0,   rot: 14  },
+    { type: "skip",    dx: -130, dy: 0,   rot: -14 },
+    { type: "trailer", dx: 0,   dy: -90,  rot: 0   },
   ];
 
   let phase = 0;
-  let animating = false;
+  let busy  = false;
 
   function resetCard() {
     card.style.transition = "none";
-    card.style.transform = "translate(0,0) rotate(0deg)";
-    stampLike.style.opacity = "0";
-    stampSkip.style.opacity = "0";
-    stampTrailer.style.opacity = "0";
-    btnLike.style.transform = "";
-    btnSkip.style.transform = "";
-    btnTrailer.style.transform = "";
-    btnLike.style.boxShadow = "";
-    btnSkip.style.boxShadow = "";
-    btnTrailer.style.boxShadow = "";
+    card.style.transform  = "translate(0,0) rotate(0deg)";
+    card.style.boxShadow  = "";
+    stampLike.style.opacity = stampSkip.style.opacity = stampTrailer.style.opacity = "0";
   }
 
-  function animatePhase() {
-    if (animating) return;
-    animating = true;
+  function runPhase(p) {
+    if (busy) return;
+    busy = true;
 
-    const p = phases[phase % phases.length];
+    card.style.transition = "transform 0.55s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease";
+    card.style.transform  = `translate(${p.dx}px, ${p.dy}px) rotate(${p.rot}deg)`;
 
-    // Drag out
-    card.style.transition = "transform 0.6s cubic-bezier(0.16,1,0.3,1)";
-    card.style.transform = `translate(${p.dx}px, ${p.dy}px) rotate(${p.rotation}deg)`;
-
-    if (p.label === "like") {
+    if (p.type === "like") {
       stampLike.style.opacity = "1";
-      btnLike.style.transform = "scale(1.25)";
-      btnLike.style.boxShadow = "0 0 24px rgba(34,197,94,0.6)";
-    } else if (p.label === "skip") {
+      card.style.boxShadow = "0 24px 60px rgba(34,197,94,0.25)";
+    } else if (p.type === "skip") {
       stampSkip.style.opacity = "1";
-      btnSkip.style.transform = "scale(1.25)";
-      btnSkip.style.boxShadow = "0 0 24px rgba(239,68,68,0.6)";
+      card.style.boxShadow = "0 24px 60px rgba(239,68,68,0.25)";
     } else {
       stampTrailer.style.opacity = "1";
-      btnTrailer.style.transform = "scale(1.15)";
-      btnTrailer.style.boxShadow = "0 0 20px rgba(216,90,48,0.6)";
+      card.style.boxShadow = "0 24px 60px rgba(216,90,48,0.25)";
     }
 
     setTimeout(() => {
       resetCard();
-      phase++;
-      animating = false;
-    }, 1400);
+      busy = false;
+    }, 1600);
   }
 
-  // Auto-play loop
-  setInterval(animatePhase, 2400);
-
-  // Manual trigger on button click
-  btnLike.addEventListener("click", () => {
-    phase = 0; animatePhase();
-  });
-  btnSkip.addEventListener("click", () => {
-    phase = 1; animatePhase();
-  });
-  btnTrailer.addEventListener("click", () => {
-    phase = 2; animatePhase();
-  });
+  // Stagger start
+  setTimeout(() => {
+    setInterval(() => {
+      runPhase(phases[phase % phases.length]);
+      phase++;
+    }, 2800);
+  }, 800);
 }
 
-// ── Nav scroll shadow ─────────────────────────────────────────────────────────
+// ── Nav scroll state ──────────────────────────────────────────────────────────
 
 const nav = document.getElementById("nav");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 20) {
-    nav.style.background = "rgba(10,10,10,0.95)";
-    nav.style.borderBottomColor = "rgba(255,255,255,0.1)";
-  } else {
-    nav.style.background = "rgba(10,10,10,0.8)";
-    nav.style.borderBottomColor = "rgba(255,255,255,0.08)";
-  }
-});
+if (nav) {
+  window.addEventListener("scroll", () => {
+    nav.style.borderBottomColor = window.scrollY > 20
+      ? "rgba(255,255,255,0.1)"
+      : "rgba(255,255,255,0.07)";
+  }, { passive: true });
+}
